@@ -19,12 +19,6 @@
 		<artifactId>myfaces-impl</artifactId>
 		<version>2.2.10</version>
 	</dependency>
-  	<!-- JSP, Myfaces requirement -->
-  	<dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>servlet-api</artifactId>
-		<version>2.5</version>
-	</dependency>
   	<!-- Unit testing -->
     <dependency>
       <groupId>junit</groupId>
