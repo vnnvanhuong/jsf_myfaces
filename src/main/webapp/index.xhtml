@@ -3,9 +3,16 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 	<h:head>
-		<title>JSF - Myfaces Example</title>
+		<title>JSF - System events Example</title>
 	</h:head>
 	<h:body>
-		<h:outputText value="#{helloBean.greeting}"/>
+		<h:form id="helloForm">
+			<f:event listener="#{guiHanlder.onScanView}" type="postAddToView"/>
+			<f:event listener="#{guiHanlder.onManipulateView}" type="preRenderView"/>
+			
+			<h:outputText value="#{helloBean.greeting}" id="greetingOutputTxt"/>
+			<br/>
+			<h:inputText value="#{helloBean.name}" id="nameInputText"/>
+		</h:form>
 	</h:body>
 </html>
