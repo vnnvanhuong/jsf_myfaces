@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 	<h:head>
-		<title>JSF - Myfaces Example</title>
+		<title>Primefaces Wizard with Chain of Responsibility Pattern</title>
 	</h:head>
 	<h:body>
-		<h:outputText value="#{helloBean.greeting}"/>
+		<ui:composition template="/template/commonLayout.xhtml">
+				<f:metadata>
+				    <f:viewAction action="#{logic.onStart}" />
+				</f:metadata>
+				
+				<ui:define name="content">
+					<h:form id="mainForm">
+						<h3 style="margin-top:0">The Wizard</h3>
+					    <p:tabView activeIndex="#{data.currentIndex}">
+					    	<p:ajax event="tabChange" listener="#{logic.onSwitchTab}" update="mainForm"/>
+					        <p:tab title="Address">
+					            <h:panelGrid columns="2" cellpadding="10">
+					                <h:outputText value="#{data.content}" />
+					            </h:panelGrid>
+					        </p:tab>
+					        <p:tab title="Person">
+					            <h:panelGrid columns="2" cellpadding="10">
+					                <h:outputText value="#{data.content}" />
+					            </h:panelGrid>
+					        </p:tab>
+					        <p:tab title="Confirm">
+					            <h:panelGrid columns="2" cellpadding="10">
+					                <h:outputText value="#{data.content}" />
+					            </h:panelGrid>
+					        </p:tab>
+					    </p:tabView>
+					    
+					    <p:commandButton value="Back" actionListener="#{logic.onBack}" update="mainForm"
+					    				rendered="#{data.currentIndex != 0}"></p:commandButton>
+					    <p:commandButton value="Next" actionListener="#{logic.onNext}" update="mainForm"
+					    				rendered="#{data.currentIndex != 2}"></p:commandButton>
+					</h:form>
+				</ui:define>
+		</ui:composition>
 	</h:body>
 </html>

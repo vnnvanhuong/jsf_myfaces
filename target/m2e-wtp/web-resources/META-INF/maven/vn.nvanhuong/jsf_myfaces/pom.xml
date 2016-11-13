@@ -8,6 +8,7 @@
   <name>jsf_myfaces Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+  	
   	<!-- Myfaces: JSF implementation from Apache Software Foundation -->
   	<dependency>
 		<groupId>org.apache.myfaces.core</groupId>
@@ -19,6 +20,14 @@
 		<artifactId>myfaces-impl</artifactId>
 		<version>2.2.10</version>
 	</dependency>
+	
+	<!-- Primefaces: UI component library for JSF -->
+	<dependency>
+	    <groupId>org.primefaces</groupId>
+	    <artifactId>primefaces</artifactId>
+	    <version>6.0</version>
+	</dependency>
+	
   	<!-- Unit testing -->
     <dependency>
       <groupId>junit</groupId>
